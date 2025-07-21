@@ -1,0 +1,31 @@
+
+body { margin: 0; background: #f4f7fa; font-family: sans-serif; }
+#game {
+  width: 800px;
+  height: 400px;
+  margin: 40px auto;
+  background: #ddeeff;
+  border: 2px solid #333;
+  position: relative;
+  overflow: hidden;
+}
+.player, .npc, .item {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+}
+.player { background-color: #4caf50; border-radius: 8px; }
+.npc { background-color: #f44336; border-radius: 8px; }
+.item { background-color: #ffd700; border-radius: 50%; }
+#energyBar {
+  width: 200px;
+  height: 20px;
+  background: #eee;
+  border: 1px solid #aaa;
+  margin: 0 auto;
+}
+#energyFill {
+  width: 100%;
+  height: 100%;
+  background: #4caf50;
+}
