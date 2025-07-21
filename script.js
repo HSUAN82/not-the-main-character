@@ -4,7 +4,7 @@ const npc = document.getElementById("npc");
 const item = document.getElementById("item");
 const energyFill = document.getElementById("energyFill");
 
-let py = 180;
+let px = 380;
 let energy = 100;
 let bgOffset = 0;
 let npcY = 300, npcDir = -1;
@@ -12,7 +12,7 @@ let itemY = 150, itemActive = true;
 const speed = 5;
 
 function updatePosition() {
-  player.style.left = "380px";
+  player.style.left = px + "px";
   player.style.top = "180px";
   npc.style.left = "380px";
   npc.style.top = (npcY - bgOffset) + "px";
@@ -29,6 +29,9 @@ function checkCollision(a, b) {
 document.addEventListener("keydown", e => {
   if (e.key === "ArrowUp") bgOffset += speed;
   if (e.key === "ArrowDown") bgOffset -= speed;
+  if (e.key === "ArrowLeft") px -= speed;
+  if (e.key === "ArrowRight") px += speed;
+  px = Math.max(0, Math.min(760, px));
   bgOffset = Math.max(0, bgOffset);
   updatePosition();
 });
