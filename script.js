@@ -4,19 +4,20 @@ const npc = document.getElementById("npc");
 const item = document.getElementById("item");
 const energyFill = document.getElementById("energyFill");
 
-let px = 50, py = 180;
+let py = 180;
 let energy = 100;
-let npcX = 600, npcDir = -2;
-let itemX = 400, itemY = 100;
-const speed = 10;
+let bgOffset = 0;
+let npcY = 300, npcDir = -1;
+let itemY = 150, itemActive = true;
+const speed = 5;
 
 function updatePosition() {
-  player.style.left = px + "px";
-  player.style.top = py + "px";
-  npc.style.left = npcX + "px";
-  npc.style.top = "180px";
-  item.style.left = itemX + "px";
-  item.style.top = itemY + "px";
+  player.style.left = "380px";
+  player.style.top = "180px";
+  npc.style.left = "380px";
+  npc.style.top = (npcY - bgOffset) + "px";
+  item.style.left = "420px";
+  item.style.top = (itemY - bgOffset) + "px";
 }
 
 function checkCollision(a, b) {
@@ -26,29 +27,31 @@ function checkCollision(a, b) {
 }
 
 document.addEventListener("keydown", e => {
-  if (e.key === "ArrowRight") px += speed;
-  if (e.key === "ArrowLeft") px -= speed;
-  if (e.key === "ArrowUp") py -= speed;
-  if (e.key === "ArrowDown") py += speed;
-  px = Math.max(0, Math.min(760, px));
-  py = Math.max(0, Math.min(360, py));
+  if (e.key === "ArrowUp") bgOffset += speed;
+  if (e.key === "ArrowDown") bgOffset -= speed;
+  bgOffset = Math.max(0, bgOffset);
   updatePosition();
 });
 
 function gameLoop() {
-  npcX += npcDir;
-  if (npcX < 0 || npcX > 760) npcDir *= -1;
+  npcY += npcDir;
+  if (npcY < bgOffset || npcY > bgOffset + 350) npcDir *= -1;
+
   if (checkCollision(player, npc)) {
-    energy -= 1;
+    energy -= 0.5;
     energy = Math.max(0, energy);
     energyFill.style.width = energy + "%";
   }
-  if (checkCollision(player, item)) {
+
+  if (itemActive && checkCollision(player, item)) {
     energy = Math.min(100, energy + 20);
     energyFill.style.width = energy + "%";
-    itemX = -100;
+    itemActive = false;
+    item.style.display = "none";
   }
-  if (px >= 760) window.location.href = "result.html";
+
+  if (bgOffset >= 1000) window.location.href = "result.html";
+
   updatePosition();
   requestAnimationFrame(gameLoop);
 }
