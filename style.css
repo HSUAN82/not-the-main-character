@@ -1,22 +1,46 @@
 
-body { margin: 0; background: #f4f7fa; font-family: sans-serif; }
+body {
+  margin: 0;
+  background: #f4f7fa;
+  font-family: sans-serif;
+}
+
 #game {
   width: 800px;
   height: 400px;
   margin: 40px auto;
-  background: #ddeeff;
+  background: linear-gradient(#ddeeff, #aaccee);
   border: 2px solid #333;
   position: relative;
   overflow: hidden;
 }
+
 .player, .npc, .item {
   position: absolute;
   width: 40px;
   height: 40px;
 }
-.player { background-color: #4caf50; border-radius: 8px; }
-.npc { background-color: #f44336; border-radius: 8px; }
-.item { background-color: #ffd700; border-radius: 50%; }
+
+.player {
+  background-color: #4caf50;
+  border-radius: 8px;
+  left: 380px;
+  top: 180px;
+  z-index: 2;
+}
+
+.npc {
+  background-color: #f44336;
+  border-radius: 8px;
+  z-index: 1;
+}
+
+.item {
+  background-color: #ffd700;
+  border-radius: 50%;
+  z-index: 1;
+}
+
 #energyBar {
   width: 200px;
   height: 20px;
@@ -24,6 +48,7 @@ body { margin: 0; background: #f4f7fa; font-family: sans-serif; }
   border: 1px solid #aaa;
   margin: 0 auto;
 }
+
 #energyFill {
   width: 100%;
   height: 100%;
