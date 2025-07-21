@@ -26,7 +26,7 @@ body {
   z-index: 2;
 }
 .npc {
-  background-image: url('assets/npc-neighbor.png');
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAv0lEQVR4nO2YUQ2AMAxEC0ECInCANSQgDRwgAg/wTwL0eh3bSN8v6eXlsi1szbIchxRMm1vgjRBk6TxC5nm9/TZNI5XdMJvkSeyKVdQkiIhdQUXhNcjIWeYhQVbOkqMW9JJD84o/ZlSC3u0hufU3mKo9bX79DeYmBFlCkOVVkP2fY/Prb1AkXYua3H80KOLfojYPatBLEskx30n2fUPHpO+H9HcSEXuTlrn/bJJchCBLCLKEIEsIshQvSL2wfsEJQr0/FJCgJL4AAAAASUVORK5CYII=');
   background-size: cover;
   border-radius: 4px;
   z-index: 1;
