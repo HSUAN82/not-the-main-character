@@ -5,10 +5,10 @@
 
 ## 🕹️ 操作方式
 
-- 使用方向鍵 ↑ ↓ ← → 移動角色
+- 使用方向鍵 ↑ ↓ 移動（模擬上滑）
 - 碰到 NPC：扣能量
 - 撿起黃色物品：回血
-- 抵達右邊邊界即過關
+- 抵達一定距離即過關
 
 ## 📁 檔案結構
 
@@ -25,6 +25,3 @@ not-the-main-character/
 ## 📡 部署說明
 
 可直接部署於 GitHub Pages。打開 `index.html` 即可遊玩。
-
----
-Created with ❤️ by you and ChatGPT.
