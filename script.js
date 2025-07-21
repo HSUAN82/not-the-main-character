@@ -7,7 +7,7 @@ const energyFill = document.getElementById("energyFill");
 let px = 380;
 let energy = 100;
 let bgOffset = 0;
-let npcY = 300, npcDir = -1;
+let npcY = 600;
 let itemY = 150, itemActive = true;
 const speed = 5;
 
@@ -37,8 +37,11 @@ document.addEventListener("keydown", e => {
 });
 
 function gameLoop() {
-  npcY += npcDir;
-  if (npcY < bgOffset || npcY > bgOffset + 350) npcDir *= -1;
+  npcY -= 2;
+  if ((npcY - bgOffset) < -50) {
+    npcY = bgOffset + 600 + Math.random() * 200; // 重設為畫面底部以下
+    npc.style.left = (Math.random() * 760) + "px";
+  }
 
   if (checkCollision(player, npc)) {
     energy -= 0.5;
